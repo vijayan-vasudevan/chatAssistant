@@ -1,4 +1,4 @@
-# Personal Second Brain Chat Bot
+# Chat Assistant Agent
 This is a multi-agent "Chat Assistant Agent" system built on the Gemini API. It uses a Retrieval Augmented Generation (RAG) 
 to build a knowledge base and a multi-agent system to provide intelligent, context-aware answers.
 
@@ -6,7 +6,7 @@ This system is designed with Evaluation-Driven Development(EDD).
 
 ## Core Features
 1. File or Folder based Knowledge Ingestion
-   * It reads provided txt file or all the txt files under the given folder.
+   * It reads provided pdf file or all the pdf files under the given folder.
    * It splits the data into multiple chunks using langchain_text_splitters
    * It embeds the chunked data using SentenceTransformer('all-MiniLM-L6-v2')
    * Stores the data into the collection(knowledge-docs) of chroma db
@@ -18,7 +18,7 @@ streamlit is used for frontend
 
 ## Multi Agent System
 1. **CoordinatorAgent**: 
-   * This agent will coordinate with all the other agents(SynthesizerAgent) and also RAGService to fetch or store data to chroma db
+   * This agent will coordinate with other agent(SynthesizerAgent) and RAGService to fetch or store data to chroma db
 2. **SynthesizerAgent**
    * This agent takes the user query, context from RAG, chat conversation in the memory
    * With all these details, it will query LLM to get the response.
